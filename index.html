@@ -191,6 +191,7 @@ footer a:hover {
 @media (max-width: 768px) {
     header {
         padding: 4em 1em;
+        clip-path: none; /* Remove curve on smaller screens */
     }
 
     header h1 {
@@ -206,10 +207,12 @@ footer a:hover {
         gap: 1em;
         padding: 1em;
         border-radius: 15px;
+        width: 100%;
     }
 
     nav a {
         font-size: 1.1em;
+        padding: 0.5em 0;
     }
 
     section {
