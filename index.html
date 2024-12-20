@@ -74,7 +74,7 @@
 
     nav {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start; /* Align items to the left */
         gap: 1.5em;
         margin: -25px auto 0;
         background: linear-gradient(to right, #6a9bb5, #80d5a8);
@@ -88,6 +88,7 @@
         animation: fadeIn 2.5s ease forwards;
         height: 2.5em;
         align-items: center;
+        flex-wrap: wrap; /* Allow items to wrap if needed */
     }
 
     nav a {
@@ -105,8 +106,8 @@
     /* Responsive Navbar */
     @media (max-width: 768px) {
         nav {
-            flex-direction: column;
-            padding: 1.5em;
+            justify-content: space-between; /* Distribute items evenly */
+            padding: 1em;
         }
 
         nav a {
@@ -215,8 +216,6 @@
         100% { opacity: 1; transform: translateY(0); }
     }
 </style>
-
-
 
 </head>
 <body>
