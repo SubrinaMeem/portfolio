@@ -14,6 +14,54 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
+/* Base Navbar Style */
+.mobile-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0; /* Remove margin to avoid overflow */
+    background: linear-gradient(to right, #6a9bb5, #80d5a8);
+    padding: 0.75em 1em; /* Reduce horizontal padding to prevent overflow */
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    opacity: 0.95;
+    animation: fadeIn 2.5s ease forwards;
+    width: 100%; /* Ensure it spans the full width of the screen */
+    box-sizing: border-box; /* Include padding in width calculation */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Navbar Links */
+.mobile-navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 100;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    text-align: center;
+    padding: 0.5em 1em;
+    flex-grow: 1; /* Allow links to grow equally */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+    .mobile-navbar {
+        flex-direction: column; /* Stack navbar items vertically */
+        padding: 1em; /* Adjust padding */
+    }
+
+    .mobile-navbar a {
+        font-size: 1em;
+        margin: 0.5em 0; /* Add space between items */
+        flex: 0;
+        white-space: normal; /* Allow wrapping for smaller screens */
+    }
+}
+
 
         header {
             background: linear-gradient(135deg, #6a9bb5, #80d5a8);
@@ -58,42 +106,33 @@
         }
 
         nav {
-    display: flex;
-    gap: 1.5em;
-    justify-content: center;
-    margin: -25px auto 0;
-    background: linear-gradient(to right, #6a9bb5, #80d5a8);
-    padding: 0.75em 2em;
-    border-radius: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    opacity: 0.95;
-    height: 4em;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
-}
+            display: flex;
+            justify-content: center;
+            gap: 1.5em;
+            margin: -25px auto 0;
+            background: linear-gradient(to right, #6a9bb5, #80d5a8);
+            padding: 0.75em 2em;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            opacity: 0.95;
+            animation: fadeIn 2.5s ease forwards;
+            height: 4em;
+        }
 
-nav::-webkit-scrollbar {
-    display: none; 
-}
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
 
-nav a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-nav a:hover {
-    color: #ffcf56;
-    transform: scale(1.1);
-}
+        nav a:hover {
+            color: #ffcf56;
+            transform: scale(1.1);
+        }
 
         section {
             padding: 3em 1em;
@@ -206,7 +245,6 @@ nav a:hover {
             <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
             <a href="#activities">Activities</a>
-            <a href="#contact">Contact</a>
         </nav>
 
     </header>
@@ -334,55 +372,5 @@ nav a:hover {
             aboutImage.classList.toggle('enlarged');
         });
     </script>
-    <script>
-        const nav = document.querySelector('nav');
-    
-        let isDragging = false;
-        let startX, scrollLeft;
-    
-        nav.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            nav.classList.add('dragging');
-            startX = e.pageX - nav.offsetLeft;
-            scrollLeft = nav.scrollLeft;
-        });
-    
-        nav.addEventListener('mouseleave', () => {
-            isDragging = false;
-            nav.classList.remove('dragging');
-        });
-    
-        nav.addEventListener('mouseup', () => {
-            isDragging = false;
-            nav.classList.remove('dragging');
-        });
-    
-        nav.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            const x = e.pageX - nav.offsetLeft;
-            const walk = (x - startX) * 2; // Adjust scroll speed
-            nav.scrollLeft = scrollLeft - walk;
-        });
-    
-        // For touch devices
-        nav.addEventListener('touchstart', (e) => {
-            isDragging = true;
-            startX = e.touches[0].pageX - nav.offsetLeft;
-            scrollLeft = nav.scrollLeft;
-        });
-    
-        nav.addEventListener('touchend', () => {
-            isDragging = false;
-        });
-    
-        nav.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            const x = e.touches[0].pageX - nav.offsetLeft;
-            const walk = (x - startX) * 2;
-            nav.scrollLeft = scrollLeft - walk;
-        });
-    </script>
-    
 </body>
 </html>
