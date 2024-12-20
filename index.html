@@ -37,6 +37,15 @@
         header p {
             font-size: 1em;
         }
+
+        /* Keep navbar in a row on mobile */
+        nav {
+            padding: 1em 2em;
+            gap: 1em; /* Adjust gap for smaller screens */
+        }
+        nav a {
+            font-size: 1em;
+        }
     }
 
     header::after {
@@ -86,19 +95,6 @@
         opacity: 0.95;
         animation: fadeIn 2.5s ease forwards;
         height: 2.5em;
-    }
-
-    /* Make navbar more compact on smaller screens */
-    @media (max-width: 768px) {
-        nav {
-            flex-direction: column;
-            padding: 1em;
-            height: auto;
-        }
-        nav a {
-            margin-bottom: 0.5em;
-            font-size: 1em;
-        }
     }
 
     nav a {
@@ -214,7 +210,7 @@
         100% { opacity: 1; transform: translateY(0); }
     }
 </style>
-   
+
 </head>
 <body>
     <header>
