@@ -6,6 +6,7 @@
     <title>Subrina Jahan Meem - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
+<style>
     body {
         margin: 0;
         font-family: 'Poppins', sans-serif;
@@ -26,7 +27,7 @@
     }
 
     /* Adjust header size for smaller screens */
-    @media (max-width: 768px) {
+    @media (max-width: 100px) {
         header {
             padding: 4em 1em 3em;
             clip-path: ellipse(100% 60% at 50% 0%); /* Less curve for smaller screens */
@@ -35,15 +36,6 @@
             font-size: 2em;
         }
         header p {
-            font-size: 1em;
-        }
-
-        /* Keep navbar in a row on mobile */
-        nav {
-            padding: 1em 2em;
-            gap: 1em; /* Adjust gap for smaller screens */
-        }
-        nav a {
             font-size: 1em;
         }
     }
@@ -95,6 +87,19 @@
         opacity: 0.95;
         animation: fadeIn 2.5s ease forwards;
         height: 2.5em;
+    }
+
+    /* Make navbar more compact on smaller screens */
+    @media (max-width: 768px) {
+        nav {
+            flex-direction: column;
+            padding: 1em;
+            height: auto;
+        }
+        nav a {
+            margin-bottom: 0.5em;
+            font-size: 1em;
+        }
     }
 
     nav a {
@@ -210,6 +215,7 @@
         100% { opacity: 1; transform: translateY(0); }
     }
 </style>
+
 
 </head>
 <body>
