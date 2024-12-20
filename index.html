@@ -194,27 +194,29 @@ footer a:hover {
 /* Responsive Styles for Mobile */
 @media (max-width: 768px) {
     header {
-        padding: 3em 1em 2em; /* Smaller padding */
+        padding: 4em 1em 3em; /* Adjusted padding */
         clip-path: none; /* Removed curve */
     }
 
     header h1 {
-        font-size: 1.8em; /* Smaller font size */
+        font-size: 2.2em; /* Smaller header font */
     }
 
     header p {
-        font-size: 1em; /* Smaller font size */
+        font-size: 1em; /* Smaller paragraph font */
     }
 
     nav {
-        flex-direction: column;
-        padding: 1em 0;
-        height: auto; /* Adjusted for mobile */
+        flex-direction: row; /* Changed to row for proper layout */
+        justify-content: space-around; /* Space out navbar items */
+        padding: 1em 2em; /* Adjust padding */
+        height: auto;
+        gap: 1em; /* Added space between navbar items */
     }
 
     nav a {
-        font-size: 1.2em;
-        padding: 0.5em 0;
+        font-size: 1.1em; /* Slightly smaller font size for navbar */
+        padding: 0.5em;
     }
 
     .about img {
@@ -230,7 +232,6 @@ footer a:hover {
         padding: 1em; /* Reduced padding */
     }
 }
-
 
     </style>
     
