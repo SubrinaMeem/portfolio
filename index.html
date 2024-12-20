@@ -27,16 +27,21 @@
             z-index: 1000;
             opacity: 0.95;
             animation: fadeIn 2.5s ease forwards;
-            height: 5em;
+    
         }
 
         .mobile-navbar a {
             text-decoration: none;
             color: #fff;
             font-weight: 100;
-            font-size: 6px;
             transition: all 0.3s ease;
         }
+        @media (max-width: 768px) {
+    .mobile-navbar a {
+        font-size: 1.2em; /* Adjust based on screen size */
+    }
+}
+
 
         .mobile-navbar a:hover {
             color: #ffcf56;
