@@ -6,7 +6,6 @@
     <title>Subrina Jahan Meem - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-<style>
     body {
         margin: 0;
         font-family: 'Poppins', sans-serif;
@@ -24,20 +23,6 @@
         clip-path: ellipse(100% 80% at 50% 0%);
         position: relative;
         overflow: hidden;
-    }
-
-    /* Adjust header size for smaller screens */
-    @media (max-width: 100px) {
-        header {
-            padding: 4em 1em 3em;
-            clip-path: ellipse(100% 60% at 50% 0%); /* Less curve for smaller screens */
-        }
-        header h1 {
-            font-size: 2em;
-        }
-        header p {
-            font-size: 1em;
-        }
     }
 
     header::after {
@@ -72,6 +57,21 @@
         animation: fadeIn 2s ease forwards;
     }
 
+    /* Responsive design for header */
+    @media (max-width: 768px) {
+        header {
+            padding: 4em 1em 3em;
+        }
+
+        header h1 {
+            font-size: 2em;
+        }
+
+        header p {
+            font-size: 1em;
+        }
+    }
+
     nav {
         display: flex;
         justify-content: center;
@@ -87,19 +87,7 @@
         opacity: 0.95;
         animation: fadeIn 2.5s ease forwards;
         height: 2.5em;
-    }
-
-    /* Make navbar more compact on smaller screens */
-    @media (max-width: 768px) {
-        nav {
-            flex-direction: column;
-            padding: 1em;
-            height: auto;
-        }
-        nav a {
-            margin-bottom: 0.5em;
-            font-size: 1em;
-        }
+        align-items: center;
     }
 
     nav a {
@@ -112,6 +100,18 @@
     nav a:hover {
         color: #ffcf56;
         transform: scale(1.1);
+    }
+
+    /* Responsive Navbar */
+    @media (max-width: 768px) {
+        nav {
+            flex-direction: column;
+            padding: 1.5em;
+        }
+
+        nav a {
+            font-size: 1.1em;
+        }
     }
 
     section {
@@ -191,7 +191,7 @@
     }
 
     footer h2 {
-        color: white;
+        color:white;
     }
 
     footer a:hover {
@@ -215,6 +215,7 @@
         100% { opacity: 1; transform: translateY(0); }
     }
 </style>
+
 
 
 </head>
