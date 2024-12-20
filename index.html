@@ -58,33 +58,42 @@
         }
 
         nav {
-            display: flex;
-            justify-content: center;
-            gap: 1.5em;
-            margin: -25px auto 0;
-            background: linear-gradient(to right, #6a9bb5, #80d5a8);
-            padding: 0.75em 2em;
-            border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            opacity: 0.95;
-            animation: fadeIn 2.5s ease forwards;
-            height: 4em;
-        }
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+    margin: -25px auto 0;
+    background: linear-gradient(to right, #6a9bb5, #80d5a8);
+    padding: 0.75em 2em;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    opacity: 0.95;
+    height: 4em;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
 
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
+nav::-webkit-scrollbar {
+    display: none; 
+}
 
-        nav a:hover {
-            color: #ffcf56;
-            transform: scale(1.1);
-        }
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: #ffcf56;
+    transform: scale(1.1);
+}
 
         section {
             padding: 3em 1em;
@@ -325,5 +334,55 @@
             aboutImage.classList.toggle('enlarged');
         });
     </script>
+    <script>
+        const nav = document.querySelector('nav');
+    
+        let isDragging = false;
+        let startX, scrollLeft;
+    
+        nav.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            nav.classList.add('dragging');
+            startX = e.pageX - nav.offsetLeft;
+            scrollLeft = nav.scrollLeft;
+        });
+    
+        nav.addEventListener('mouseleave', () => {
+            isDragging = false;
+            nav.classList.remove('dragging');
+        });
+    
+        nav.addEventListener('mouseup', () => {
+            isDragging = false;
+            nav.classList.remove('dragging');
+        });
+    
+        nav.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - nav.offsetLeft;
+            const walk = (x - startX) * 2; // Adjust scroll speed
+            nav.scrollLeft = scrollLeft - walk;
+        });
+    
+        // For touch devices
+        nav.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].pageX - nav.offsetLeft;
+            scrollLeft = nav.scrollLeft;
+        });
+    
+        nav.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+    
+        nav.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const x = e.touches[0].pageX - nav.offsetLeft;
+            const walk = (x - startX) * 2;
+            nav.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+    
 </body>
 </html>
