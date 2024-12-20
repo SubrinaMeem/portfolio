@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subrina Jahan Meem - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
+    <style>
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -61,7 +61,7 @@ nav {
     display: flex;
     justify-content: center;
     gap: 1.5em;
-    margin: -25px auto 0;
+    margin: 0 auto;
     background: linear-gradient(to right, #6a9bb5, #80d5a8);
     padding: 0.75em 2em;
     border-radius: 30px;
@@ -72,6 +72,7 @@ nav {
     opacity: 0.95;
     animation: fadeIn 2.5s ease forwards;
     height: 2.5em;
+    width: auto; /* Make navbar flexible */
 }
 
 nav a {
@@ -203,11 +204,12 @@ footer a:hover {
     }
 
     nav {
-        flex-direction: column;
+        flex-direction: row;
         gap: 1em;
         padding: 1em;
         border-radius: 15px;
-        width: 100%;
+        width: 100%; /* Make sure navbar stretches full width */
+        margin-top: 0; /* Ensure navbar is positioned correctly */
     }
 
     nav a {
@@ -261,8 +263,7 @@ footer a:hover {
     }
 }
 
-</style>
-
+    </style>
 </head>
 <body>
     <header>
